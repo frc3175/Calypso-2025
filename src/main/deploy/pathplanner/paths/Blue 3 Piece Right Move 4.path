@@ -4,12 +4,12 @@
     {
       "anchor": {
         "x": 3.5299431818181817,
-        "y": 2.8832528409090914
+        "y": 2.923139204545454
       },
       "prevControl": null,
       "nextControl": {
         "x": 3.763861644508381,
-        "y": 2.7950363299111274
+        "y": 2.83492269354749
       },
       "isLocked": false,
       "linkedName": "blue3piecerightmove3"

@@ -37,13 +37,13 @@ public Climber() {
     var talonFXConfigs = new TalonFXConfiguration();
     
     var slot0Configs = talonFXConfigs.Slot0;
-    slot0Configs.kS = 6.59;
-    slot0Configs.kV = 0.12;
-    slot0Configs.kA = 0.11;
+    slot0Configs.kS = 6.59; //6.59
+    slot0Configs.kV = 0.12; //0.12
+    slot0Configs.kA = 0.11; //0.11
 
-    slot0Configs.kP = -1;
-    slot0Configs.kI = 0;
-    slot0Configs.kD = 0;
+    slot0Configs.kP = 1; //-1
+    slot0Configs.kI = 0; //0
+    slot0Configs.kD = 0; //0 
     
     m_motor.getConfigurator().apply(talonFXConfigs, 0.050);
     m_motor.setNeutralMode(NeutralModeValue.Brake);
