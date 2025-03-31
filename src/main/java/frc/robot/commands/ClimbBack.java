@@ -4,6 +4,7 @@
 
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.Constants;
 import frc.robot.subsystems.Climber;
@@ -12,6 +13,8 @@ import frc.robot.subsystems.Climber;
 public class ClimbBack extends Command {
 
   public Climber m_climber;
+  public Timer m_timer;
+  
   /** Creates a new ClimbBack. */
   public ClimbBack(Climber climber) {
 
@@ -23,6 +26,10 @@ public class ClimbBack extends Command {
   // Called when the command is initially scheduled.
   @Override
   public void initialize() { 
+
+    m_timer.reset();
+    m_timer.start();
+
     m_climber.setservo(90);
     m_climber.setpose(25);
   }
@@ -35,11 +42,24 @@ public class ClimbBack extends Command {
 
   // Called once the command ends or is interrupted.
   @Override
-  public void end(boolean interrupted) {}
+  public void end(boolean interrupted) {
+
+    m_climber.stopClimber();
+
+  }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    return true;
+    if (Math.abs(m_climber.getpose() - 25) <= 1) {
+      return true;
+    
+    } else if (m_timer.get() >= 2) {
+      return true;
+
+    } else {
+      return false;
+
+    }
   }
 }

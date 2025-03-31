@@ -5,6 +5,8 @@
 package frc.robot.subsystems;
 
 import com.ctre.phoenix6.configs.TalonFXConfiguration;
+import com.ctre.phoenix6.controls.CoastOut;
+import com.ctre.phoenix6.controls.DutyCycleOut;
 import com.ctre.phoenix6.controls.PositionDutyCycle;
 import com.ctre.phoenix6.hardware.TalonFX;
 import com.ctre.phoenix6.signals.NeutralModeValue;
@@ -35,6 +37,9 @@ public Climber() {
     m_servo = new Servo(Constants.ClimberConstants.SERVOPORT);
 
     var talonFXConfigs = new TalonFXConfiguration();
+
+    talonFXConfigs.CurrentLimits.withStatorCurrentLimitEnable(true);
+    talonFXConfigs.CurrentLimits.withStatorCurrentLimit(60);
     
     var slot0Configs = talonFXConfigs.Slot0;
     slot0Configs.kS = 6.59; //6.59
@@ -44,8 +49,9 @@ public Climber() {
     slot0Configs.kP = 1; //-1
     slot0Configs.kI = 0; //0
     slot0Configs.kD = 0; //0 
+
     
-    m_motor.getConfigurator().apply(talonFXConfigs, 0.050);
+    m_motor.getConfigurator().apply(talonFXConfigs);
     m_motor.setNeutralMode(NeutralModeValue.Brake);
     // periodic, run Motion Magic with slot 0 configs,
   }
@@ -76,6 +82,12 @@ public Climber() {
   public void setservo(double angle){
 
     m_servo.setAngle(angle);
+
+  }
+
+  public void stopClimber() {
+
+    m_motor.setControl(new DutyCycleOut(0));
 
   }
 
