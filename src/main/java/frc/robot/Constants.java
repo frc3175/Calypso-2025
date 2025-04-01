@@ -38,7 +38,7 @@ public class Constants {
         public static final double L2 = 3.0; //4
         public static final double L3 = 8.2; //10
         public static final double L4 = 17;
-        public static final double BARGE = 17;
+        public static final double BARGE = 18;
         public static final double ALGAET2 = 3.33;
         public static final double ALGAET3 = 8.53;
         public static final double INTAKE = 0;
@@ -80,7 +80,7 @@ public class WristConstants {
     public static final double L2 = -31.3;
     public static final double L3 = -31.3;//-8.8
     public static final double L4 = -27.3;
-    public static final double BARGE = -20;
+    public static final double BARGE = -23;
     public static final double ALGAET2 = -9.12;
     public static final double ALGAET3 = -9.12;
     public static final double INTAKE = 0;

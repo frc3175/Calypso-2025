@@ -17,6 +17,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.InstantCommand;
 import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
+import frc.robot.commands.AlgaBoom;
 import frc.robot.commands.AutoLeft;
 import frc.robot.commands.AutoRight;
 import frc.robot.commands.ClimbBack;
@@ -142,6 +143,8 @@ public class RobotContainer {
         driverController.start().onTrue(new InstantCommand(()->m_AutoRight.cancel())
             .alongWith(new InstantCommand(()->m_AutoLeft.cancel())));
 
+        driverController.back().onTrue(new SetBotState(m_botState, m_elevator, m_wrist, m_intake, BobotState.BARGE));
+
         
          
     
@@ -171,7 +174,7 @@ public class RobotContainer {
             .alongWith(new ClimbBack(m_climber)));
 
         zl.onTrue(new SetBotState(m_botState, m_elevator, m_wrist, m_intake, BobotState.PROCESSOR));
-        zr.onTrue(new SetBotState(m_botState, m_elevator, m_wrist, m_intake, BobotState.BARGE));
+        zr.onTrue(new AlgaBoom(m_intake, m_wrist, m_elevator, m_botState));
         
         }
 
