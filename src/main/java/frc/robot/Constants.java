@@ -34,8 +34,8 @@ public class Constants {
 
         //set points
         public static final double HOME = 0.4;  //0.4
-        public static final double L1 = 0.4;
-        public static final double L2 = 3.0; //4
+        public static final double L1 = 4;
+        public static final double L2 = 2.7; //4
         public static final double L3 = 8.2; //10
         public static final double L4 = 17;
         public static final double BARGE = 18;
@@ -76,7 +76,7 @@ public class WristConstants {
     public static final double kD = 0;
 
     public static final double HOME = -37; //working
-    public static final double L1 = -32;
+    public static final double L1 = -34.3;
     public static final double L2 = -31.3;
     public static final double L3 = -31.3;//-8.8
     public static final double L4 = -27.3;
