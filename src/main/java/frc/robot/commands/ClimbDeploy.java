@@ -18,8 +18,7 @@ public class ClimbDeploy extends Command {
   public ClimbDeploy(Climber climber) {
 
     m_climber = climber;
-    Timer timer = new Timer();
-    m_timer = timer;
+    m_timer = new Timer();
     
 
     addRequirements(m_climber);
@@ -30,6 +29,7 @@ public class ClimbDeploy extends Command {
   @Override
   public void initialize() {
 
+    m_timer.reset();
     m_timer.start();
 
     m_climber.setservo(0);

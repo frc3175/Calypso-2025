@@ -19,8 +19,7 @@ public class ClimbBack extends Command {
   public ClimbBack(Climber climber) {
 
     m_climber = climber;
-    Timer timer = new Timer();
-    m_timer = timer;
+    m_timer = new Timer();
     
     // Use addRequirements() here to declare subsystem dependencies.
   }
