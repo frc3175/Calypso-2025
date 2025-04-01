@@ -19,6 +19,8 @@ public class ClimbBack extends Command {
   public ClimbBack(Climber climber) {
 
     m_climber = climber;
+    Timer timer = new Timer();
+    m_timer = timer;
     
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -51,10 +53,10 @@ public class ClimbBack extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (Math.abs(m_climber.getpose() - 25) <= 1) {
+    if (Math.abs(m_climber.getpose() - 25) <= 0.1) {
       return true;
     
-    } else if (m_timer.get() >= 2) {
+    } else if (m_timer.get() >= 3) {
       return true;
 
     } else {

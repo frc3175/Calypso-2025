@@ -18,6 +18,8 @@ public class ClimbDeploy extends Command {
   public ClimbDeploy(Climber climber) {
 
     m_climber = climber;
+    Timer timer = new Timer();
+    m_timer = timer;
     
 
     addRequirements(m_climber);
@@ -28,7 +30,6 @@ public class ClimbDeploy extends Command {
   @Override
   public void initialize() {
 
-    m_timer.reset();
     m_timer.start();
 
     m_climber.setservo(0);
@@ -50,7 +51,7 @@ public class ClimbDeploy extends Command {
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (m_timer.get() >= 0.5) {
+    if (m_timer.get() >= 1) {
       return true;
       
     } else {
