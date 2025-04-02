@@ -184,5 +184,12 @@ public class WristConstants {
 
         public static final Pose2d TAG22L = new Pose2d(4.485, 2.927, Rotation2d.fromDegrees(120));
         public static final Pose2d TAG22R = new Pose2d(4.786, 3.080, Rotation2d.fromDegrees(120));
+
+        
+        public static final Pose2d REDNETLEFT = new Pose2d(0, 0, Rotation2d.fromDegrees(0));
+        public static final Pose2d REDNETRIGHT = new Pose2d(0, 0, Rotation2d.fromDegrees(0));
+
+        public static final Pose2d BLUENETLEFT = new Pose2d(0, 0, Rotation2d.fromDegrees(180));
+        public static final Pose2d BLUENETRIGHT = new Pose2d(0, 0, Rotation2d.fromDegrees(180));
     }
 }

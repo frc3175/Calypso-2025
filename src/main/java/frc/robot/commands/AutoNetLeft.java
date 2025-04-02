@@ -4,30 +4,33 @@
 
 package frc.robot.commands;
 
+import java.util.Optional;
+
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.path.PathConstraints;
 import edu.wpi.first.math.geometry.Pose2d;
+import edu.wpi.first.wpilibj.DriverStation;
+import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj2.command.Command;
+import frc.robot.Constants;
 import frc.robot.subsystems.CommandSwerveDrivetrain;
-import frc.robot.subsystems.Limelight;
-import frc.robot.util.AutoutilsLeft;
+
 
 
 
 /* You should consider using the more terse Command factories API instead https://docs.wpilib.org/en/stable/docs/software/commandbased/organizing-command-based.html#defining-commands */
 
-public class AutoLeft extends Command {
+public class AutoNetLeft extends Command {
   public Command m_path;
  private boolean end = false;
  private Pose2d endPose;
- private Limelight m_limelight;
  private CommandSwerveDrivetrain m_drivetrain;
 
  PathConstraints constraints = new PathConstraints(4, 2, 2 * Math.PI, 4 * Math.PI); // The constraints for this path.
   /** Creates a new AutoWorkPlease. */
-  public AutoLeft(Limelight limelight, CommandSwerveDrivetrain drivetrain) {
-    m_limelight = limelight;
+  public AutoNetLeft(CommandSwerveDrivetrain drivetrain) {
     m_drivetrain = drivetrain;
+
     
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -37,7 +40,14 @@ public class AutoLeft extends Command {
   @Override
   public void initialize() {
     //endPose = getNearestLeftPose(m_drivetrain.getState().Pose);
-    endPose = AutoutilsLeft.getNewLeftPose(m_drivetrain.getState().Pose);
+    Optional<Alliance> ally = DriverStation.getAlliance();
+    if (ally.isPresent()) {
+      if (ally.get() == Alliance.Red) {
+        endPose = Constants.AutoAlignConstants.REDNETLEFT;
+      } else {
+        endPose = Constants.AutoAlignConstants.BLUENETLEFT;
+      }
+    }
 
             // Create the path using the waypoints created above
             final  Command path =  AutoBuilder.pathfindToPose(

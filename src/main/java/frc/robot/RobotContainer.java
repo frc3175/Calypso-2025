@@ -19,6 +19,8 @@ import edu.wpi.first.wpilibj2.command.button.CommandXboxController;
 import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.commands.AlgaBoom;
 import frc.robot.commands.AutoLeft;
+import frc.robot.commands.AutoNetLeft;
+import frc.robot.commands.AutoNetRight;
 import frc.robot.commands.AutoRight;
 import frc.robot.commands.ClimbBack;
 import frc.robot.commands.ClimbDeploy;
@@ -139,6 +141,9 @@ public class RobotContainer {
 
         driverController.rightTrigger().onTrue(m_AutoRight);
         driverController.leftTrigger().onTrue(m_AutoLeft);
+
+        driverController.pov(90).onTrue(new AutoNetRight(drivetrain));
+        driverController.pov(270).onTrue(new AutoNetLeft(drivetrain));
         
         driverController.start().onTrue(new InstantCommand(()->m_AutoRight.cancel())
             .alongWith(new InstantCommand(()->m_AutoLeft.cancel())));
