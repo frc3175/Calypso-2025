@@ -6,6 +6,7 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.Command;
+import edu.wpi.first.wpilibj2.command.button.Trigger;
 import frc.robot.Constants;
 import frc.robot.subsystems.Climber;
 
@@ -14,12 +15,19 @@ public class ClimbBack extends Command {
 
   public Climber m_climber;
   public Timer m_timer;
+  public Timer m_holdTimer;
   
+  public Trigger velocityTrigger;
+
   /** Creates a new ClimbBack. */
   public ClimbBack(Climber climber) {
 
     m_climber = climber;
     m_timer = new Timer();
+    m_holdTimer = new Timer();
+
+    velocityTrigger = new Trigger(()-> { return Math.abs(m_climber.getClimbMotor().getVelocity().getValueAsDouble()) < 5; }).
+                          debounce(1);
     
     // Use addRequirements() here to declare subsystem dependencies.
   }
@@ -31,13 +39,18 @@ public class ClimbBack extends Command {
     m_timer.reset();
     m_timer.start();
 
-    m_climber.setservo(90);
-    m_climber.setpose(25);
+    m_climber.setpose(25, true, false);
+    m_holdTimer.stop();
+    m_holdTimer.start();
   }
 
   // Called every time the scheduler runs while the command is scheduled.
   @Override
   public void execute() {
+    //if (velocityTrigger.getAsBoolean()) {
+      //m_climber.setservo(90);
+      m_holdTimer.start();
+    //}
 
   }
 
@@ -45,17 +58,18 @@ public class ClimbBack extends Command {
   @Override
   public void end(boolean interrupted) {
 
-    m_climber.stopClimber();
+    m_climber.setservo(90);
 
   }
 
   // Returns true when the command should end.
   @Override
   public boolean isFinished() {
-    if (Math.abs(m_climber.getpose() - 25) <= 0.1) {
-      return true;
+    // if (Math.abs(m_climber.getpose() - 25) <= 0.1) {
+    //   return true;
     
-    } else if (m_timer.get() >= 3) {
+    // } else 
+    if (m_timer.get()>=1.5) {
       return true;
 
     } else {

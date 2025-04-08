@@ -28,31 +28,34 @@ TalonFX m_motor;
 public Servo m_servo;
 GenericEntry slider;
 
+public TalonFX getClimbMotor() { 
+  return m_motor;
+}
 
 public Climber() {
     m_motor = new TalonFX(Constants.ClimberConstants.MOTORID , Constants.RIO);
    
     m_motmag = new PositionDutyCycle(0);
-
+    
     m_servo = new Servo(Constants.ClimberConstants.SERVOPORT);
 
     var talonFXConfigs = new TalonFXConfiguration();
 
     talonFXConfigs.CurrentLimits.withStatorCurrentLimitEnable(true);
-    talonFXConfigs.CurrentLimits.withStatorCurrentLimit(60);
+    talonFXConfigs.CurrentLimits.withStatorCurrentLimit(50);
     
     var slot0Configs = talonFXConfigs.Slot0;
-    slot0Configs.kS = 6.59; //6.59
-    slot0Configs.kV = 0.12; //0.12
-    slot0Configs.kA = 0.11; //0.11
+    // slot0Configs.kS = 6.59; //6.59
+    // slot0Configs.kV = 0.12; //0.12
+    // slot0Configs.kA = 0.11; //0.11
 
-    slot0Configs.kP = 1; //-1
+    slot0Configs.kP = 0.3; //-1
     slot0Configs.kI = 0; //0
     slot0Configs.kD = 0; //0 
 
-    
+    talonFXConfigs.MotorOutput.NeutralMode = NeutralModeValue.Brake;
+
     m_motor.getConfigurator().apply(talonFXConfigs);
-    m_motor.setNeutralMode(NeutralModeValue.Brake);
     // periodic, run Motion Magic with slot 0 configs,
   }
   
@@ -70,10 +73,16 @@ public Climber() {
  
 
   }
+  public void setManual(double output, boolean isLimiting, boolean limitForward){
 
-  public void setpose(double pose){
+    m_motor.setControl(new DutyCycleOut(output).withLimitReverseMotion(isLimiting).withLimitForwardMotion(limitForward));
 
-    m_motor.setControl(m_motmag.withPosition(pose));
+
+  }
+
+  public void setpose(double pose, boolean isLimiting, boolean limitForward){
+
+    m_motor.setControl(m_motmag.withPosition(pose).withLimitReverseMotion(isLimiting).withLimitForwardMotion(limitForward));
 
 
   }

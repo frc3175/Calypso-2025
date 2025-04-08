@@ -3,13 +3,13 @@
   "waypoints": [
     {
       "anchor": {
-        "x": 5.326,
-        "y": 2.928
+        "x": 5.215142045454546,
+        "y": 2.853338068181819
       },
       "prevControl": null,
       "nextControl": {
-        "x": 4.077311991632183,
-        "y": 1.9707700240205654
+        "x": 3.96645403708673,
+        "y": 1.8961080922023843
       },
       "isLocked": false,
       "linkedName": "red4piecerightmove1"
@@ -37,7 +37,7 @@
   "constraintZones": [
     {
       "name": "Constraints Zone",
-      "minWaypointRelativePos": 0.8,
+      "minWaypointRelativePos": 0.6,
       "maxWaypointRelativePos": 1.0,
       "constraints": {
         "maxVelocity": 2.0,
@@ -55,7 +55,12 @@
       "name": "Intake",
       "waypointRelativePos": 0.4,
       "endWaypointRelativePos": null,
-      "command": null
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "Intake"
+        }
+      }
     }
   ],
   "globalConstraints": {

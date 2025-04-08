@@ -64,15 +64,25 @@
   "eventMarkers": [
     {
       "name": "HOME",
-      "waypointRelativePos": 0.8,
+      "waypointRelativePos": 1.0,
       "endWaypointRelativePos": null,
-      "command": null
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "HOME"
+        }
+      }
     },
     {
       "name": "L4",
-      "waypointRelativePos": 1.8,
+      "waypointRelativePos": 1.4,
       "endWaypointRelativePos": null,
-      "command": null
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "L4"
+        }
+      }
     }
   ],
   "globalConstraints": {

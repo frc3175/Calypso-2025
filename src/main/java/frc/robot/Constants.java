@@ -34,13 +34,13 @@ public class Constants {
 
         //set points
         public static final double HOME = 0.4;  //0.4
-        public static final double L1 = 4;
-        public static final double L2 = 2.7; //4
-        public static final double L3 = 8.2; //10
+        public static final double L1 = 4.3;
+        public static final double L2 = 2.2      ; //4
+        public static final double L3 = 7.7; //10
         public static final double L4 = 17;
         public static final double BARGE = 18;
-        public static final double ALGAET2 = 3.33;
-        public static final double ALGAET3 = 8.53;
+        public static final double ALGAET2 = 2.33;
+        public static final double ALGAET3 = 7.83;
         public static final double INTAKE = 0;
         public static final double CLIMB = 0;
         public static final double PROCESSOR = 0.4;

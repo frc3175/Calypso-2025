@@ -8,6 +8,7 @@ import static edu.wpi.first.units.Units.MetersPerSecond;
 
 import com.pathplanner.lib.auto.AutoBuilder;
 import com.pathplanner.lib.auto.NamedCommands;
+import com.pathplanner.lib.path.EventMarker;
 
 import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.XboxController;
@@ -97,6 +98,8 @@ public class RobotContainer {
 
         NamedCommands.registerCommand("AlgaeOuttake", new InstantCommand(()->m_intake.algaeintakerunvoltage(Constants.AlgaeIntakeConstants.OUTTAKE)));
 
+        NamedCommands.registerCommand("L2", new SetBotState(m_botState, m_elevator, m_wrist, m_intake, BobotState.L2));
+
         
         autoChooser = AutoBuilder.buildAutoChooser("Blue 3 Piece Right");
 
@@ -142,8 +145,8 @@ public class RobotContainer {
         driverController.rightTrigger().onTrue(m_AutoRight);
         driverController.leftTrigger().onTrue(m_AutoLeft);
 
-        driverController.pov(90).onTrue(new AutoNetRight(drivetrain));
-        driverController.pov(270).onTrue(new AutoNetLeft(drivetrain));
+        //driverController.pov(90).onTrue(new AutoNetRight(drivetrain));
+        //driverController.pov(270).onTrue(new AutoNetLeft(drivetrain));
         
         driverController.start().onTrue(new InstantCommand(()->m_AutoRight.cancel())
             .alongWith(new InstantCommand(()->m_AutoLeft.cancel())));
@@ -171,7 +174,6 @@ public class RobotContainer {
         opController.start().onTrue(new SetBotState(m_botState, m_elevator, m_wrist, m_intake, BobotState.ALGAET3));
 
         opController.back().onTrue(new SetBotState(m_botState, m_elevator, m_wrist, m_intake, BobotState.ALGAET2));
-
 
         opController.pov(0).onTrue(new SetBotState(m_botState, m_elevator, m_wrist, m_intake, BobotState.CLIMB)
             .alongWith(new ClimbDeploy(m_climber)));

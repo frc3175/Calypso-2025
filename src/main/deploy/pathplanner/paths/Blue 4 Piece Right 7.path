@@ -80,13 +80,18 @@
   "eventMarkers": [
     {
       "name": "HOME",
-      "waypointRelativePos": 0.8,
+      "waypointRelativePos": 0.9,
       "endWaypointRelativePos": null,
-      "command": null
+      "command": {
+        "type": "named",
+        "data": {
+          "name": "HOME"
+        }
+      }
     },
     {
-      "name": "L4",
-      "waypointRelativePos": 2.6,
+      "name": "L2",
+      "waypointRelativePos": 1.5,
       "endWaypointRelativePos": null,
       "command": null
     }

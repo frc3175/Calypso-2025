@@ -44,7 +44,7 @@ public class ClimbDeploy extends Command {
   @Override
   public void end(boolean interrupted) {
     
-    m_climber.setpose(-110);
+    m_climber.setpose(-110, false, true);
 
   }
 
