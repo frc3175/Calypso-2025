@@ -144,9 +144,10 @@ public enum IntakeState {
   BARGE(Constants.CoralIntakeConstants.HOLD, Constants.AlgaeIntakeConstants.HOLD, Constants.AlgaeIntakeConstants.ISALGAEOUTTAKE),
   ALGAET2(Constants.CoralIntakeConstants.HOLD, Constants.AlgaeIntakeConstants.INTAKE, Constants.AlgaeIntakeConstants.ISALGAEOUTTAKE),
   ALGAET3(Constants.CoralIntakeConstants.HOLD, Constants.AlgaeIntakeConstants.INTAKE, Constants.AlgaeIntakeConstants.ISALGAEOUTTAKE),
-  INTAKE(Constants.CoralIntakeConstants.INTAKE, Constants.AlgaeIntakeConstants.HOLD, Constants.CoralIntakeConstants.ISCORALOUTTAKE),
+  INTAKE(Constants.CoralIntakeConstants.INTAKE, Constants.AlgaeIntakeConstants.OUTTAKE, Constants.CoralIntakeConstants.ISCORALOUTTAKE),
   CLIMB(Constants.CoralIntakeConstants.HOLD, Constants.AlgaeIntakeConstants.HOLD, Constants.AlgaeIntakeConstants.ISALGAEOUTTAKE),
   PROCESSOR(Constants.CoralIntakeConstants.HOLD, Constants.AlgaeIntakeConstants.HOLD, Constants.AlgaeIntakeConstants.ISALGAEOUTTAKE),
+  L1INTAKE(Constants.CoralIntakeConstants.OUTTAKE, Constants.AlgaeIntakeConstants.INTAKE, Constants.AlgaeIntakeConstants.ISALGAEOUTTAKE),
   ALGAEHOME(Constants.CoralIntakeConstants.HOLD, Constants.AlgaeIntakeConstants.HOLD, Constants.AlgaeIntakeConstants.ISALGAEOUTTAKE);
 
   public double coralIntakeSpeed;

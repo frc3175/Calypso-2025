@@ -58,9 +58,15 @@ public class Robot extends TimedRobot {
   
       LimelightHelpers.SetRobotOrientation("limelight",m_robotContainer.drivetrain.getgyroyaw().getDegrees(), 0, 0, 0, 0, 0);
       var llMeasurement = LimelightHelpers.getBotPoseEstimate_wpiBlue("limelight");
+      var algaeLLMeasurement = LimelightHelpers.getBotPoseEstimate_wpiBlue("limelight-algae");
       if (llMeasurement != null && llMeasurement.tagCount > 0 && Math.abs(omegaRps) < 2.0) {
-        m_robotContainer.drivetrain.addVisionMeasurement(llMeasurement.pose, llMeasurement.timestampSeconds);
-        
+
+          m_robotContainer.drivetrain.addVisionMeasurement(llMeasurement.pose, llMeasurement.timestampSeconds);
+
+      } else if (algaeLLMeasurement != null && algaeLLMeasurement.tagCount > 0 && Math.abs(omegaRps) < 2.0) {
+
+          m_robotContainer.drivetrain.addVisionMeasurement(algaeLLMeasurement.pose, algaeLLMeasurement.timestampSeconds);
+
       }
       
       SmartDashboard.putNumber("111 drive pose X", m_robotContainer.drivetrain.getState().Pose.getX());

@@ -44,6 +44,7 @@ public class Constants {
         public static final double INTAKE = 0;
         public static final double CLIMB = 0;
         public static final double PROCESSOR = 0.4;
+        public static final double L1INTAKE = 0;
         public static final double ALGAEHOME = 0.4;
         
 
@@ -86,6 +87,7 @@ public class WristConstants {
     public static final double INTAKE = 0;
     public static final double CLIMB = -9.4;
     public static final double PROCESSOR = 0;
+    public static final double L1INTAKE = 0;
     public static final double ALGAEHOME = -15;
 
     public static final double DEFUALTVELOCITY = 160;

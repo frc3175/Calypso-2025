@@ -91,6 +91,7 @@ public enum ElevatorState {
   INTAKE(Constants.ElevatorConstants.INTAKE),
   CLIMB(Constants.ElevatorConstants.CLIMB),
   PROCESSOR(Constants.ElevatorConstants.PROCESSOR),
+  L1INTAKE(Constants.ElevatorConstants.L1INTAKE),
   ALGAEHOME(Constants.ElevatorConstants.ALGAEHOME);
 
   public final double elevatorSetpoint;

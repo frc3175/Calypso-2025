@@ -107,6 +107,7 @@ public Wrist() {
     INTAKE(Constants.WristConstants.INTAKE, Constants.WristConstants.DEFUALTVELOCITY, Constants.WristConstants.DEFAULTACCELERATION, Constants.WristConstants.DEFAULTJERK),
     CLIMB(Constants.WristConstants.CLIMB, Constants.WristConstants.DEFUALTVELOCITY, Constants.WristConstants.DEFAULTACCELERATION, Constants.WristConstants.DEFAULTJERK),
     PROCESSOR(Constants.WristConstants.PROCESSOR, Constants.WristConstants.DEFUALTVELOCITY, Constants.WristConstants.DEFAULTACCELERATION, Constants.WristConstants.DEFAULTJERK),
+    L1INTAKE(Constants.WristConstants.L1INTAKE, Constants.WristConstants.DEFUALTVELOCITY, Constants.WristConstants.DEFAULTACCELERATION, Constants.WristConstants.DEFAULTJERK),
     ALGAEHOME(Constants.WristConstants.ALGAEHOME, Constants.WristConstants.DEFUALTVELOCITY, Constants.WristConstants.DEFAULTACCELERATION, Constants.WristConstants.DEFAULTJERK);
 
     public final double wristSetpoint;
